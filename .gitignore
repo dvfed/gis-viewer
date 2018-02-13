@@ -1,0 +1,13 @@
+bin
+dcu
+**/__history
+*.dcu
+*.~*~
+*.local
+*.identcache
+*.tvsconfig
+*.drc
+*.map
+*.exe
+*.dll
+*.lnk
