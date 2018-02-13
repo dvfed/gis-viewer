@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<datasources>
+		<file id="1" name="propjoin_vm\ROAD_CL_CHAIN.mif"/>
+		<file id="2" name="propjoin_vm\PARCEL_MP.mif"/>
+		<file id="3" name="propjoin_vm\CENTROID.mif"/>
+	</datasources>
+	<layoutsources>
+		<embedded id="1">
+			<linearfeature>
+				<properties>
+					<property name="@CLASSIFIER_TAG" value="Border"/>
+				</properties>
+				<geometry wkt="LINESTRING (0 0, 0 297, 420 297, 420 0, 0 0)"/>
+			</linearfeature>
+			<linearfeature>
+				<properties>
+					<property name="@CLASSIFIER_TAG" value="Border"/>
+				</properties>
+				<geometry wkt="LINESTRING (20 5, 20 292, 415 292, 415 5, 20 5)"/>
+			</linearfeature>
+			<linearfeature>
+				<properties>
+					<property name="@CLASSIFIER_TAG" value="Border"/>
+				</properties>
+				<geometry wkt="LINESTRING (235 5, 235 60, 415 60)"/>
+			</linearfeature>
+			<viewport scale="0.01" panto="2472300.0 2449300.0">
+				<properties>
+					<property name="@CLASSIFIER_TAG" value="Situation view"/>
+				</properties>
+				<clipper wkt="LINEARRING (290 170, 290 270, 390 270, 390 170, 290 170)"/>
+				<layergroup scale="2">
+					<layer name="streets">
+						<data sourceid="1"/>
+						<styles>
+							<style default="true">
+								<pen color="FFD3D3D3"/>
+							</style>
+						</styles>
+					</layer>
+				</layergroup>
+			</viewport>
+			<viewport scale="0.1" panto="2472300.0 2449300.0">
+				<properties>
+					<property name="@CLASSIFIER_TAG" value="Main view"/>
+				</properties>
+				<clipper wkt="LINEARRING (40 40, 40 210, 105 260, 250 260, 250 150, 135 40, 40 40)"/>
+				<layergroup scale="2">
+					<layer name="streets">
+						<data sourceid="1"/>
+						<styles>
+							<style>
+								<property name="FEATURE_TYPE" value="12041"/>
+								<pen color="FFFFB6C1"/> 
+							</style>
+						</styles>
+					</layer>
+					<layer name="parcels">
+						<data sourceid="2"/>
+						<styles>
+							<style>
+								<property name="PARCEL_STATUS" value="P"/>
+								<pen color="FF90EE90"/>
+								<brush color="FF90EE90"/>
+							</style>
+						</styles>
+					</layer>
+				</layergroup>
+			</viewport>
+		</embedded>
+	</layoutsources>
+	<models>
+		<!-- if none scale then zoomAll, if none panto then panToCenter -->
+		<workwindow scale="0.001" panto="2472300.0 2449300.0">
+			<layergroup name="main" scale="2">
+				<layer name="streets">
+					<data sourceid="1"/>
+					<styles/>
+				</layer>
+				<layer name="parcels">
+					<data sourceid="2"/>
+					<styles/>
+				</layer>
+				<layer name="centers">
+					<data sourceid="3"/>
+					<styles/>
+				</layer>
+			</layergroup>
+		</workwindow>
+	</models>
+	<layouts>
+		<workwindow scale="0.5" panto="200.0 200.0" current="true">
+			<layergroup name="main" scale="1">
+				<layer name="main">
+					<data sourceid="1"/>
+					<styles/>
+				</layer>
+			</layergroup>
+		</workwindow>
+	</layouts>
+</project>
