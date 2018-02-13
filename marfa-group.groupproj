@@ -1,0 +1,60 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{8CF5296B-E273-4035-9657-84A3C6131115}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="marfa.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="marfa_components.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="marfaTests.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="marfa">
+			<MSBuild Projects="marfa.dproj"/>
+		</Target>
+		<Target Name="marfa:Clean">
+			<MSBuild Projects="marfa.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="marfa:Make">
+			<MSBuild Projects="marfa.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="marfa_components">
+			<MSBuild Projects="marfa_components.dproj"/>
+		</Target>
+		<Target Name="marfa_components:Clean">
+			<MSBuild Projects="marfa_components.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="marfa_components:Make">
+			<MSBuild Projects="marfa_components.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="marfaTests">
+			<MSBuild Projects="marfaTests.dproj"/>
+		</Target>
+		<Target Name="marfaTests:Clean">
+			<MSBuild Projects="marfaTests.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="marfaTests:Make">
+			<MSBuild Projects="marfaTests.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="marfa;marfa_components;marfaTests"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="marfa:Clean;marfa_components:Clean;marfaTests:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="marfa:Make;marfa_components:Make;marfaTests:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>
